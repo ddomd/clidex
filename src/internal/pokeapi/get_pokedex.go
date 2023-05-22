@@ -1,20 +1,6 @@
 package pokeapi
 
-import (
-	"encoding/json"
-	"strings"
-)
-
-func normalizeFlavorText(s string) string {
-	removeEscapes := strings.NewReplacer(
-		"\f", " ",
-		"\n", "\n\t| ")
-	format := strings.NewReplacer(". ", "\n\t| ")
-
-	s = removeEscapes.Replace(s)
-
-	return format.Replace(s)
-}
+import "encoding/json"
 
 func (c *Client) GetDex(query string) (Pokedex, error) {
 	statsEndpoint := apiUrl + "pokemon/" + query
@@ -39,7 +25,7 @@ func (c *Client) GetDex(query string) (Pokedex, error) {
 		Number: statsObj.ID,
 		Height: statsObj.Height,
 		Weight: statsObj.Weight,
-		Flavor: normalizeFlavorText(flavorObj.FlavorTextEntries[0].FlavorText),
+		Flavor: flavorObj.FlavorTextEntries[0].FlavorText,
 	}, nil
 
 }
