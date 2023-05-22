@@ -1,13 +1,16 @@
 package repl
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/ddomd/clidex/internal/pokeapi"
+)
 
-func help() error{
+func help(client *pokeapi.Client, args ...string) error{
 
-	fmt.Println("\nHere is a list of available commands: \n")
+	fmt.Println("\n\tHere is a list of available commands: \n")
 
 	for _, cmd := range getCmds() {
-		fmt.Printf("\t%s: %s\n", cmd.name, cmd.description)
+		fmt.Printf("\t\t%s: %s\n", cmd.Name, cmd.Description)
 	}
 		
 	return nil

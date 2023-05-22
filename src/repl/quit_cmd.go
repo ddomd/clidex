@@ -1,8 +1,11 @@
 package repl
 
-import "os"
+import (
+	"os"
+	"github.com/ddomd/clidex/internal/pokeapi"
+)
 
-func quit() error {
+func quit(client *pokeapi.Client, args ...string) error {
 	os.Exit(0)
 	return nil
 }

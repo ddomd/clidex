@@ -20,5 +20,7 @@ fmt.Println(`
  ───────────────────────────────────────────────────────────────────────────────────────────
  `)
 
- fmt.Println(" | Welcome to the clidex a simple cli utility to navigate the pokedex.")
+ fmt.Println(" | Welcome to the clidex a simple cli utility to navigate the Pokedex.")
+ fmt.Println(" | You can query the Pokedex using the command 'dex [name/number]'.")
+ fmt.Println(" | For a list of available commands use command 'help'.")
 }

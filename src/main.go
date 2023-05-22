@@ -1,7 +1,13 @@
 package main
 
-import "github.com/ddomd/clidex/repl"
+import (
+	"time"
+
+	"github.com/ddomd/clidex/repl"
+	"github.com/ddomd/clidex/internal/pokeapi"
+)
 
 func main() {
-	repl.Repl()
+	client := pokeapi.NewClient(time.Second*5, time.Minute*5)
+	repl.Repl(&client)
 }
